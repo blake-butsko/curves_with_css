@@ -1,8 +1,16 @@
 body{
-    /* margin: 0; */
+    margin: 0;
     font-family: "Sixtyfour Convergence", sans-serif;
     color: white;
     background: black;
+    overflow-x: hidden;
+    /* hide scroll bar but still let them be able to scroll */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.body::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar for Chrome, Safari, and newer versions of Edge */
 }
 
 section{
@@ -10,19 +18,114 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 400px;
+    min-height: 200px;
     padding: 100px 20vw;
 }
 
+.blue{
+    background: #0000ff;
+}
 
-.sixtyfour-convergence-35 {
-    font-family: "Sixtyfour Convergence", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "BLED" 0,
-      "SCAN" 0,
-      "XELA" 0,
-      "YELA" 0;
-  }
+.red{
+    background: red;
+}   
+
+.pink{
+    background: #ffc0cb;
+}
+
+.dark{
+    background: #a9a9a9;
+}   
+
+.white{
+    background: white;
+}
+.green{
+    background: #417505;
+}
+
+.curve{
+    position:absolute;
+    height: 225px;
+    width: 100%;
+    bottom: 0;
+}
+
+.curve::before{
+    content: "";
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: #000000;
+    transform: translate(85%, 60%);
+}
+
+.curve::after{
+    content: "";
+    position: absolute;
+    border-radius: 100% 50%;
+    width: 55%;
+    height: 100%;
+    background-color: blue;
+    transform: translate(-4%, 40%);
+    z-index: -1;
+}
+
+.bubble::after{
+    content:'';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
+    background: #417505;
+    z-index: -1;
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 336px;
+}
+
+.wave .shape-fill {
+    fill: #417505;
+}
+
+.spacer {
+    aspect-ratio: 930/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.layer1 {
+    background-image: url('./stacked-steps-haikei.svg');
+}
+
+.layer2 {
+    background-image: url('./layered-waves-haikei1.svg');
+}
+
+.layer3 {
+    background-image: url('./layered-waves-haikei.svg');
+}
+
+.blob-motion {
+    position: absolute;
+    transform: translateY(20%);
+}
